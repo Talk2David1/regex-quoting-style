@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RegexP Golf Assignment</title>
+    <style>
+       button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="numbersAgain.html">
+      <button>Click for Numbers Again Assignment</button>
+    </a>
+    
+    <a href="emailRegex.html">
+      <button>Click for Email Replacement Assignment</button>
+    </a>
+    
+    <a href="index.html">
+      <button>Click for Single Quotes Replacement Assignment</button>
+    </a>
+    <div>
+      <ol>
+        <li>
+          Matching "car" or "cat": <br />
+          Regular Expression: c[ar]t <br />
+        </li>
+        <li>
+          Matching "pop" or "prop": <br />
+          Regular Expression: pr?op <br />
+        </li>
+        <li>
+          Matching "ferret," "ferry," or "ferrari": <br />
+          Regular Expression: ferret|ferry|ferrari <br />
+        </li>
+        <li>
+          Matching words ending in "ious": <br />
+          Regular Expression: \b\w+ious\b <br />
+        </li>
+
+        <li>
+          A whitespace character followed by a period, comma, colon, or
+          semicolon <br />
+          Regular Expression: \s[.,:;] <br />
+        </li>
+        <li>
+          Matching words longer than six letters: <br />
+          Regular Expression: \b\w{7,}\b <br />
+        </li>
+        <li>
+          Matching words without the letter "e" (or "E"): <br />
+          Regular Expression: \b[^eE]+\b <br />
+        </li>
+      </ol>
+
+      <h1>Regular Expression Tester</h1>
+      <label for="input">Enter text:</label>
+      <input type="text" id="input" placeholder="Enter text here" />
+      <button onclick="testRegex()">Test Regular Expressions</button>
+      <div id="result"></div>
+    </div>
+    <script>
+      function testRegex() {
+        const inputText = document.getElementById("input").value;
+        const regexArray = [
+          /c[ar]t/,
+          /pr?op/,
+          /ferret|ferry|ferrari/,
+          /\b\w+ious\b/,
+          /\s[.,:;]/,
+          /\b\w{7,}\b/,
+          /\b[^eE]+\b/,
+        ];
+
+        const resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = ""; // Clear previous results
+
+        for (let i = 0; i < regexArray.length; i++) {
+          const regex = regexArray[i];
+          const isMatch = regex.test(inputText);
+          const regexText = regex.toString();
+
+          const resultMessage = document.createElement("p");
+          resultMessage.textContent = `RegExp: ${regexText} - Result: ${isMatch}`;
+          resultDiv.appendChild(resultMessage);
+        }
+      }
+
+      // initial function used for testing
+      //   function testRegexPatterns(inputString) {
+      //     const patterns = [
+      //       /c[ar]t/,
+      //       /pr?op/,
+      //       /ferret|ferry|ferrari/,
+      //       /\b\w+ious\b/,
+      //       /\s[.,:;]/,
+      //       /\b\w{7,}\b/,
+      //       /\b[^eE]+\b/,
+      //     ];
+
+      //     const results = [];
+
+      //     patterns.forEach((pattern, index) => {
+      //       if (pattern.test(inputString)) {
+      //         results.push(`Match found for pattern ${index + 1}: ${pattern}`);
+      //       } else {
+      //         results.push(`No match for pattern ${index + 1}: ${pattern}`);
+      //       }
+      //     });
+
+      //     return results;
+      //   }
+
+      //   // Test the function with an example input string
+      //   const inputString = "The cat and the ferret ate some delicious pie.";
+      //   const results = testRegexPatterns(inputString);
+      //   results.forEach((result) => console.log(result));
+    </script>
+  </body>
+</html>

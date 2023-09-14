@@ -1,19 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quotes Styling</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <h2>Replacing Single Quotes That Are Not In Words</h2>
-        <input type="text" id="inputText" placeholder="Enter texts and use single quotes '' then sit back and watch the magic">
-        <button onclick="replaceQuotes()">Replace Quotes</button>
-        <p id="outputText"></p>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
 
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      input[type="text"] {
+        width: 90%;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      p {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Replacing Single Quotes That Are Not In Words</h2>
+      <input
+        type="text"
+        id="inputText"
+        placeholder="Enter texts and use single quotes '' then sit back and watch the magic"
+      />
+      <button onclick="replaceQuotes()">Replace Quotes</button>
+      <p id="outputText"></p>
+    </div> <br>
+    <a href="regexPGolf.html">
+      <button>Click for Regex P Golf Assignment</button>
+    </a>
+    <br> <br>
+    <a href="numbersAgain.html">
+      <button>Click for Numbers Again Assignment</button>
+    </a>
+    <br> <br>
+    <a href="emailRegex.html">
+      <button>Click for Email Replacement Assignment</button>
+    </a>
+
+    <script>
+      function replaceQuotes() {
+        const inputText = document.getElementById("inputText").value;
+        const replacedText = replaceSingleQuotes(inputText);
+        const outputText = document.getElementById("outputText");
+        outputText.textContent = replacedText;
+      }
+
+      function replaceSingleQuotes(sentence) {
+        return sentence.replace(/'(?![a-zA-Z]+(?:\s|$))/g, '"');
+      }
+
+      // initial code function
+      /*
+function replaceSingleQuotes(sentence) {
+  return sentence.replace(/'(?![a-zA-Z]+(?:\s|$))/g, '"');
+}
+
+const inputSentence = "I ain't sure if I'm ready, but let's do it anyway.";
+const replacedSentence = replaceSingleQuotes(inputSentence);
+
+console.log(replacedSentence);
+*/
+    </script>
+  </body>
+</html>

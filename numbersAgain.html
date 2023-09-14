@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Numbers Again</title>
+    <style>
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Please check the console for the result</h3>
+    <div>
+      <ul>
+        <li>const regexNum = /^[-+]?(\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?$/;</li>
+        <li>console.log(regexNum.test(".5")); // true</li>
+        <li>console.log(regexNum.test("-.5")); // true</li>
+        <li>console.log(regexNum.test("+5")); // true</li>
+        <li>console.log(regexNum.test("1e-4")); // true</li>
+        <li>console.log(regexNum.test("1E-4")); // true</li>
+        <li>console.log(regexNum.test("45")); // true</li>
+        <li>console.log(regexNum.test("3856")); // true</li>
+        <li>console.log(regexNum.test("398868483992")); // true</li>
+        <li>console.log(regexNum.test(".")); // false</li>
+      </ul>
+      <a href="regexPGolf.html">
+        <button>Click for Regex P Golf Assignment</button>
+      </a>
+      
+      <a href="emailRegex.html">
+        <button>Click for Email Replacement Assignment</button>
+      </a>
+      
+      <a href="index.html">
+        <button>Click for Single Quotes Replacement Assignment</button>
+      </a> </div>
+    <script>
+      const regexNum = /^[-+]?(\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?$/;
+      console.log(regexNum.test(".5")); // true
+      console.log(regexNum.test("-.5")); // true
+      console.log(regexNum.test("+5")); // true
+      console.log(regexNum.test("1e-4")); // true
+      console.log(regexNum.test("1E-4")); // true
+      console.log(regexNum.test("45")); // true
+      console.log(regexNum.test("3856")); // true
+      console.log(regexNum.test("398868483992")); // true
+      console.log(regexNum.test(".")); // false
+    </script>
+  </body>
+</html>

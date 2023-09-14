@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Replacing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .email-form {
+            max-width: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .email-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .mask-button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .masked-email {
+            font-weight: bold;
+        }
+        button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+</head>
+<body>
+    <div class="email-form">
+        <h2>Replace Email Address</h2>
+        <input type="email" class="email-input" id="email" placeholder="Enter your email">
+        <button class="mask-button" onclick="maskEmail()">Mask Email</button>
+        <p class="masked-email" id="maskedEmail"></p>
+    </div>
+    <br>
+    <a href="numbersAgain.html">
+      <button>Click for Numbers Again Assignment</button>
+    </a>
+    <br> <br>
+    <a href="regexPGolf.html">
+      <button>Click for Regex P Golf Assignment</button>
+    </a>
+    <br> <br>
+    <a href="index.html">
+      <button>Click for Single Quotes Replacement Assignment</button>
+    </a>
+    <script>
+        function maskEmail() {
+            const emailInput = document.getElementById('email');
+            const maskedEmailDisplay = document.getElementById('maskedEmail');
+            const email = emailInput.value.trim();
+
+            // Regular expression to replace the email before '@' with '*****'
+            const maskedEmail = email.replace(/^(.+)@(.+)$/, '*****@$2');
+
+            maskedEmailDisplay.textContent = `Masked Email: ${maskedEmail}`;
+        }
+    </script>
+</body>
+</html>
